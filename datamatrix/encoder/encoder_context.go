@@ -3,7 +3,7 @@ package encoder
 import (
 	"golang.org/x/text/encoding/charmap"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/nattfodd/gozxing"
 )
 
 type EncoderContext struct {

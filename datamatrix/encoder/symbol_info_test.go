@@ -3,7 +3,7 @@ package encoder
 import (
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/nattfodd/gozxing"
 )
 
 func TestSymbolInfo(t *testing.T) {

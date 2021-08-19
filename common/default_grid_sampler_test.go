@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/nattfodd/gozxing"
 )
 
 func TestDefaultGridSampler_SampleGrid(t *testing.T) {

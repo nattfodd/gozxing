@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/common"
-	"github.com/makiuchi-d/gozxing/testutil"
+	"github.com/nattfodd/gozxing"
+	"github.com/nattfodd/gozxing/common"
+	"github.com/nattfodd/gozxing/testutil"
 )
 
 func TestNewDetector(t *testing.T) {

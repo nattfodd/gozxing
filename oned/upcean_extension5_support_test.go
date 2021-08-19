@@ -3,7 +3,7 @@ package oned
 import (
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/nattfodd/gozxing"
 )
 
 func testUPCEANExtension5Support_parseExtension5String(t testing.TB, raw, expect string) {

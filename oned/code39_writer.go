@@ -3,7 +3,7 @@ package oned
 import (
 	"strings"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/nattfodd/gozxing"
 )
 
 type code39Encoder struct{}

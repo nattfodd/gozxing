@@ -3,7 +3,7 @@ package oned
 import (
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/nattfodd/gozxing"
 )
 
 func TestCodabarEncoder_encode(t *testing.T) {

@@ -3,7 +3,7 @@ package oned
 import (
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
+	"github.com/nattfodd/gozxing"
 )
 
 func TestUPCEANExtensionSupport_decodeRowFail(t *testing.T) {

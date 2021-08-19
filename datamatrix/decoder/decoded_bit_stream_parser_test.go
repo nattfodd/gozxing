@@ -4,8 +4,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/makiuchi-d/gozxing"
-	"github.com/makiuchi-d/gozxing/common"
+	"github.com/nattfodd/gozxing"
+	"github.com/nattfodd/gozxing/common"
 )
 
 func testUnrandomize255State(t testing.TB, randomized, codewordPosition, expect int) {
