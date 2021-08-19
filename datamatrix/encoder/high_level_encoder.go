@@ -116,28 +116,31 @@ func EncodeHighLevel(msg string, shape SymbolShapeHint, minSize, maxSize *gozxin
 		context.SetSkipAtEnd(2)
 		context.pos += len(HighLevelEncoder_MACRO_06_HEADER)
 	}
-
-	encodingMode := HighLevelEncoder_ASCII_ENCODATION //Default mode
+	// encodingMode := HighLevelEncoder_ASCII_ENCODATION //Default mode
+	encodingMode := HighLevelEncoder_C40_ENCODATION //Default mode
+	context.WriteCodeword(0xE6)                     // Begin of C40 encoding
 	for context.HasMoreCharacters() {
 		encoders[encodingMode].encode(context)
-		if context.GetNewEncoding() >= 0 {
-			encodingMode = context.GetNewEncoding()
-			context.ResetEncoderSignal()
-		}
+		// if context.GetNewEncoding() >= 0 {
+		// 	fmt.Println("context.GetNewEncoding()", context.GetNewEncoding())
+		// 	encodingMode = context.GetNewEncoding()
+		// 	context.ResetEncoderSignal()
+		// }
 	}
-	length := context.GetCodewordCount()
+
+	// length := context.GetCodewordCount()
 	e = context.UpdateSymbolInfo()
 	if e != nil {
 		return nil, gozxing.WrapWriterException(e)
 	}
 
 	capacity := context.GetSymbolInfo().GetDataCapacity()
-	if length < capacity &&
-		encodingMode != HighLevelEncoder_ASCII_ENCODATION &&
-		encodingMode != HighLevelEncoder_BASE256_ENCODATION &&
-		encodingMode != HighLevelEncoder_EDIFACT_ENCODATION {
-		context.WriteCodeword(0xfe) //Unlatch (254)
-	}
+	// if length < capacity &&
+	// 	encodingMode != HighLevelEncoder_ASCII_ENCODATION &&
+	// 	encodingMode != HighLevelEncoder_BASE256_ENCODATION &&
+	// 	encodingMode != HighLevelEncoder_EDIFACT_ENCODATION {
+	// 	context.WriteCodeword(0xfe) //Unlatch (254)
+	// }
 	//Padding
 	codewords := context.GetCodewords()
 	if len(codewords) < capacity {
