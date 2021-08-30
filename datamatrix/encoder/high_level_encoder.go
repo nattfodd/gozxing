@@ -74,11 +74,7 @@ const (
 
 func randomize253State(codewordPosition int) byte {
 	pseudoRandom := ((149 * codewordPosition) % 253) + 1
-	tempVariable := HighLevelEncoder_PAD + pseudoRandom
-	if tempVariable <= 254 {
-		return byte(tempVariable)
-	}
-	return byte(tempVariable - 254)
+	return byte((HighLevelEncoder_PAD + pseudoRandom) % 254)
 }
 
 // EncodeHighLevel Performs message encoding of a DataMatrix message using the
@@ -121,11 +117,10 @@ func EncodeHighLevel(msg string, shape SymbolShapeHint, minSize, maxSize *gozxin
 	context.WriteCodeword(0xE6)                     // Begin of C40 encoding
 	for context.HasMoreCharacters() {
 		encoders[encodingMode].encode(context)
-		// if context.GetNewEncoding() >= 0 {
-		// 	fmt.Println("context.GetNewEncoding()", context.GetNewEncoding())
-		// 	encodingMode = context.GetNewEncoding()
-		// 	context.ResetEncoderSignal()
-		// }
+		if context.GetNewEncoding() >= 0 {
+			encodingMode = context.GetNewEncoding()
+			context.ResetEncoderSignal()
+		}
 	}
 
 	// length := context.GetCodewordCount()
